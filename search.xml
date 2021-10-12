@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>js原型链</title>
+      <link href="post/js%E5%8E%9F%E5%9E%8B%E9%93%BE/"/>
+      <url>post/js%E5%8E%9F%E5%9E%8B%E9%93%BE/</url>
+      
+        <content type="html"><![CDATA[<p><img src="/img/prototype.jpg" alt="prototype"></p><h3 id="先看第一行"><a href="#先看第一行" class="headerlink" title="先看第一行"></a>先看第一行</h3><p>我们定义的 show 函数在 Foo.prototype 中，当我们执行 f1.show()时，js 发现 f1 本身没有 show 这个属性，所以它就到 f1 的原型（也就是__proto__指向的对象）去找，找到了就可以调用。</p><blockquote><p>注：每个对象都有一个方法 hasOwnProperty()来检查对象本身是否有某个属性，如果有则返回 true；如果这个属性在它的原型链上或原型链上都没有，则返回 false；</p></blockquote><p>图片第一行告诉了我们 4 点：</p><ol><li>所有函数都有一个 prototype 指针，指向原型对象，如图中的 Foo 的 prototype 指针。prototype 指针的意义是，当我们使用这个构造函数 new 出新对象的时候，新对象的原型是谁。</li><li>构造函数的 prototype 所指向的原型对象有一个 constructor 指针，指回构造函数。如图中 Foo.prototype 的 constructor 指针指向 Foo。constructor 指针有助于我们找到一个对象的构造函数是谁。</li><li>__proto__每个对象都有，js 在 new 一个对象的时候，会将它的__proto__指向构造函数的 prototype 指向的那个对象。在上图中，f1、f2 这些实例对象的__proto__都指向了 Foo.prototype。</li><li>如果一个对象的__proto__`指向了另一个对象，那么前者就继承了后者的所有属性。</li></ol><h3 id="接着图片往下看，它展示了-js-对象继承关系"><a href="#接着图片往下看，它展示了-js-对象继承关系" class="headerlink" title="接着图片往下看，它展示了 js 对象继承关系"></a>接着图片往下看，它展示了 js 对象继承关系</h3><p>我们先看看 Foo 的原型吧！Foo 是一个函数，它的构造函数是 js 内部的 function Function()，Function 的 prototype 指向了一个对象 Function.prototype，因此 Foo 的__proto__就指向了 Function.prototype，如图。</p><blockquote><p>所有的函数都以 function Function()为构造函数，因此，所有函数（包括 function Function()和 function Object()）的__proto__都指向 Function.prototype 这个对象，这个对象中定义了所有函数都共有的方法，比如 call()、apply()等。</p></blockquote><p>我们继续深入下去，Function.prototype 这个对象，它就是一个普通的对象，它的构造函数是 js 内置的 function Object()，function Object()的 prototype 指向 Object.prototype，因此 Function.prototype.__proto__就指向 Object.prototype，这个对象中定义了所有对象共有的属性，比如我们之前说的 hasOwnProperty()和 toString()等。</p><blockquote><p>同理，Foo.prototype 和其他自定义的对象也是__proto__指向 Object.prototype 对象，就不需要说明了。</p></blockquote><p>Object.prototype 就是原型链的终点了，它的__proto__是 null，js 查找属性时，如果到这里还没有找到，那就是 undefined 了。</p><p>到这里就不难理解为什么我们说在 js 中，函数也是对象了，它就是继承自对象的！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> JS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> js </tag>
+            
+            <tag> prototype </tag>
+            
+            <tag> 原型链 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>js引擎解析过程</title>
       <link href="post/js%E5%BC%95%E6%93%8E%E8%A7%A3%E6%9E%90%E8%BF%87%E7%A8%8B/"/>
       <url>post/js%E5%BC%95%E6%93%8E%E8%A7%A3%E6%9E%90%E8%BF%87%E7%A8%8B/</url>
