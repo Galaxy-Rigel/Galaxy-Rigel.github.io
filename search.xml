@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>浅谈前端面筋（网络篇）</title>
+      <link href="post/%E5%93%88%E5%B8%8C%E5%92%8C%E5%8A%A0%E5%AF%86/"/>
+      <url>post/%E5%93%88%E5%B8%8C%E5%92%8C%E5%8A%A0%E5%AF%86/</url>
+      
+        <content type="html"><![CDATA[<h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a><strong>区别</strong></h3><p>首先就概念上来说：hash是将目标文本转换成具有相同长度的、不可逆的杂凑字符串，Encrypt是将目标文本转换成不同长度的、可逆的密文。从概念上可以看出两者的区别，下面就不做具体的阐述了。举个例子标明两者的区别：</p><p>hash相当于做一份香喷喷的米饭。从将米饭和水放入电饭锅开始，在应用散列函数（混合、煮）之后，在一定时间后会得到一锅米饭。逆转的话是你不能将米饭分解成大米和水，你不能知道放入了多少大米和水，因为这些被三列功能破坏了。理论上，许多不同的输入变量产生相同的米饭，但如果给出其中一个，你就无法确定知道是什么输入产生了它。</p><p>而对于加密来说，相对简单些，把加密看作是一个保险箱，不管你用什么方法放进去，只有你拥有这把钥匙，你就会能拿出来，这个是对称的操作，给定一个键和输入，就会得到特点的输出。给定输出和相同的键，就会得到输入，这里的键可以看作是salt。</p><h3 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h3><h3 id=""><a href="#" class="headerlink" title=""></a><img src="https://img-blog.csdnimg.cn/img_convert/9d62976173785c964df64535043a8b71.png" alt="9d62976173785c964df64535043a8b71"></h3><p>从数学角度讲，哈希和加密都是一个映射。下面正式定义两者：</p><p>  <strong>一个哈希算法</strong><br>$$<br>R=H(S)<br>$$<br>是一个多对一映射，给定目标文本S，H可以将其唯一映射为R，并且对于所有S，R具有相同的长度。由于是多对一映射，所以H不存在逆映射使得R转换为唯一的S。<br>$$<br>S=H^{-1}(R)<br>$$</p><p><strong>一个加密算法</strong><br>$$<br>R=E(S,K_E)<br>$$<br>是一个一一映射，其中第二个参数叫做加密密钥，E可以将给定的明文S结合加密密钥Ke唯一映射为密文R，并且存在另一个一一映射，可以结合Kd将密文R唯一映射为对应明文S，其Kd叫做解密密钥。<br>$$<br>S=D(R,K_D)<br>$$</p><h3 id="选择应用"><a href="#选择应用" class="headerlink" title="选择应用"></a><strong>选择应用</strong></h3><p>在选择使用hash还是Encrypt基本原则是：如果被保护数据仅仅用作比较验证，在以后不需要还原成明文形式，则使用哈希；如果被保护数据在以后需要被还原成明文，则需要使用加密。目前常用的hash包括但不限于MD5，SHA1，SHA256；加密包括但不限于DES，TDES，AES，RSA等。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 安全 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 哈希 </tag>
+            
+            <tag> 加密 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>算法—动态规划求最大子序列和</title>
       <link href="post/%E7%AE%97%E6%B3%95_%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
       <url>post/%E7%AE%97%E6%B3%95_%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
