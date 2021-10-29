@@ -62,6 +62,37 @@
     
     
     <entry>
+      <title>防抖和节流</title>
+      <link href="post/%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/"/>
+      <url>post/%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/</url>
+      
+        <content type="html"><![CDATA[<h2 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h2><p><strong>在不断的操作中（键盘输入，点击，窗口resize等）最终只执行一次的一种提高性能的方法</strong> （setTimeout，clearTimeout）</p><p>代码实现：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">fun,time</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> timer = <span class="literal">null</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      clearTimeouot(timer)</span><br><span class="line">      <span class="keyword">let</span> args = <span class="built_in">arguments</span></span><br><span class="line">      timer = <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">        fun.apply(<span class="built_in">this</span>,args)</span><br><span class="line">      &#125;,time)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h2><p>在不断的高频操作中（鼠标滚动加载等），只能在规定的时间内执行一次的一种提高性能的方法</p><p>代码实现：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">fun,time</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> start = (<span class="keyword">new</span> <span class="built_in">Date</span>().getTime())/<span class="number">1000</span> <span class="comment">// 初始时间</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">   <span class="keyword">let</span> end = (<span class="keyword">new</span> <span class="built_in">Date</span>().getTime())/<span class="number">1000</span>  <span class="comment">// 结束时间</span></span><br><span class="line">     <span class="keyword">if</span>(end- start&gt;time)&#123;</span><br><span class="line">       fun.apply(<span class="built_in">this</span>,<span class="built_in">arguments</span>)</span><br><span class="line">       start = end</span><br><span class="line">     &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> JS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 防抖 </tag>
+            
+            <tag> 节流 </tag>
+            
+            <tag> debounce </tag>
+            
+            <tag> throttle </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>算法—动态规划求最大子序列和</title>
       <link href="post/%E7%AE%97%E6%B3%95_%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
       <url>post/%E7%AE%97%E6%B3%95_%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
