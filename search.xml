@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>加密与哈希</title>
+      <link href="post/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/"/>
+      <url>post/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/</url>
+      
+        <content type="html"><![CDATA[<p><strong>狭义上的理解：</strong>将开发阶段的代码发布到生产环境，包含：构建，分支管理，自动化测试，部署</p><p><strong>广义上理解：</strong>前端工程化应该包含从编码开始到发布，运行和维护阶段</p><p>也有人把 <strong>前端工程化</strong> 等同于 <strong>效率工程</strong></p><p>认为一切能提升前端开发效率、提高前端应用质量的方法和工具都是前端工程化，我觉得这么理解也是没有问题的，提升开发效率、提升产品质量、降低开发难度、降低企业成本应该是工程化的意义所在。</p><p><img src="https://pic1.zhimg.com/80/v2-6d8a4d2618cd852c780d35847b0b27ab_1440w.jpg?source=1940ef5c"></p><p>另外一个就是前端工程化不是具体的某项技术和方法，公司的组织架构、产品形态、所处的阶段不同可能工程化具体的方法和实践完全不一样，那么从我的角度，简单把工程化划分了5部分：开发、构建、部署、性能、规范化， 对于分类和具体包含的项或许你不一定认同，但是如果所有的知识点你都很熟悉和掌握，那么你的前端工程化水平绝对是中高级的。</p><p><img src="https://pic2.zhimg.com/80/v2-e1ac6afa6b0b11ae344728fa451472b0_1440w.jpg?source=1940ef5c" alt="img"></p><p><img src="https://pica.zhimg.com/80/v2-c4050cd0668ae0e487557ade3e338ca5_1440w.jpg?source=1940ef5c" alt="img"></p><p><img src="https://pic1.zhimg.com/80/v2-58400269d9247f458b55edfc17eb5b01_1440w.jpg?source=1940ef5c" alt="img"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 工程化 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 工程化 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>nuxt集成axios</title>
       <link href="post/nuxt%E8%87%B3axios%E5%92%8C%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E8%AE%BE%E7%BD%AE/"/>
       <url>post/nuxt%E8%87%B3axios%E5%92%8C%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E8%AE%BE%E7%BD%AE/</url>
@@ -35,7 +60,7 @@
     
     
     <entry>
-      <title>浅谈前端面筋（网络篇）</title>
+      <title>加密与哈希</title>
       <link href="post/%E5%93%88%E5%B8%8C%E5%92%8C%E5%8A%A0%E5%AF%86/"/>
       <url>post/%E5%93%88%E5%B8%8C%E5%92%8C%E5%8A%A0%E5%AF%86/</url>
       
