@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>husky+lint-staged+commitlint 规范代码</title>
+      <link href="post/husky+lint-staged+commitlint/"/>
+      <url>post/husky+lint-staged+commitlint/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><strong>husky</strong>，是一个为 git 客户端增加 hook 的工具。比如 pre-commit 钩子就会在你执行 git commit 的触发。我们可以在 pre-commit 中实现一些比如 lint 检查、单元测试、代码美化等操作。</p><p><strong>lint-staged</strong>，一个仅仅过滤出 Git 代码暂存区文件(被 git add 的文件)的工具；这个很实用，因为我们如果对整个项目的代码做一个检查，可能耗时很长，如果是老项目，要对之前的代码做一个代码规范检查并修改的话，这可能就麻烦了，可能导致项目改动很大。所以这个 lint-staged，对团队项目和开源项目来说，是一个很好的工具，它是对个人要提交的代码的一个规范和约束。</p><p><strong>Commitlint</strong>，校验commitMsg 规范的工具</p><h2 id="husky"><a href="#husky" class="headerlink" title="husky"></a>husky</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm add -D husky</span><br></pre></td></tr></table></figure><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>Edit <code>package.json &gt; prepare</code> script and run it once:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm set-script prepare <span class="string">&quot;husky install&quot;</span></span><br><span class="line">npm run prepare</span><br></pre></td></tr></table></figure><p>Add a hook:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npx husky add .husky/pre-commit <span class="string">&quot;npx lint-staged&quot;</span></span><br><span class="line">git add .husky/pre-commit</span><br></pre></td></tr></table></figure><h2 id="lint-staged"><a href="#lint-staged" class="headerlink" title="lint-staged"></a>lint-staged</h2><h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm add -D lint-staged</span><br></pre></td></tr></table></figure><h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>在根目录下创建 <code>lint-staged.config.js</code>，内容如下：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="string">&#x27;*.&#123;js,jsx,ts,tsx,vue&#125;&#x27;</span>: [<span class="string">&#x27;eslint --fix&#x27;</span>, <span class="string">&#x27;prettier --write&#x27;</span>],</span><br><span class="line">  <span class="string">&#x27;*.&#123;css,scss,less,md,json,yaml&#125;&#x27;</span>: [<span class="string">&#x27;prettier --write&#x27;</span>],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="commitlint"><a href="#commitlint" class="headerlink" title="commitlint"></a>commitlint</h2><h3 id="安装-2"><a href="#安装-2" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Install commitlint cli and conventional config</span></span><br><span class="line">pnpm add -D @commitlint/&#123;config-conventional,cli&#125;</span><br><span class="line"><span class="comment"># For Windows:</span></span><br><span class="line">pnpm add -D @commitlint/config-conventional @commitlint/cli</span><br><span class="line"></span><br><span class="line"><span class="comment"># Configure commitlint to use conventional config</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;module.exports = &#123;extends: [&#x27;@commitlint/config-conventional&#x27;]&#125;&quot;</span> &gt; commitlint.config.js</span><br></pre></td></tr></table></figure><h3 id="创建husky脚本"><a href="#创建husky脚本" class="headerlink" title="创建husky脚本"></a>创建husky脚本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx husky add .husky/commit-msg <span class="string">&quot;npx --no -- commitlint --edit <span class="variable">$1</span>&quot;</span></span><br></pre></td></tr></table></figure><p>so easy!</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 工程化 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> husky </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>typescript声明文件正确使用姿势</title>
       <link href="post/typescript%E5%A3%B0%E6%98%8E%E6%96%87%E4%BB%B6%E6%AD%A3%E7%A1%AE%E4%BD%BF%E7%94%A8%E5%A7%BF%E5%8A%BF/"/>
       <url>post/typescript%E5%A3%B0%E6%98%8E%E6%96%87%E4%BB%B6%E6%AD%A3%E7%A1%AE%E4%BD%BF%E7%94%A8%E5%A7%BF%E5%8A%BF/</url>
@@ -79,7 +104,7 @@
     
     
     <entry>
-      <title>加密与哈希</title>
+      <title>浅谈前端工程化</title>
       <link href="post/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/"/>
       <url>post/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/</url>
       
@@ -312,7 +337,7 @@
       
       <categories>
           
-          <category> 数据结构  </category>
+          <category> 数据结构 </category>
           
       </categories>
       
